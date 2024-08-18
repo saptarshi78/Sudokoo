@@ -1,0 +1,248 @@
+body {
+    font-family: 'Cursive', sans-serif; /* Romantic font */
+    text-align: center;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+h1 {
+    color: #333;
+    text-shadow: 2px 2px 4px #999; /* Shadow for h1 */
+}
+
+#user-info {
+    margin-bottom: 20px;
+}
+
+#timer-display {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#user-display {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#theme-selector {
+    margin-bottom: 20px;
+}
+
+#sudoku-container {
+    margin-top: 20px;
+}
+
+#sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-gap: 5px;
+    justify-content: center;
+    border: 2px solid #333; /* Border around Sudoku grid */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sudoku-cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    transition: background-color 0.5s, border 0.5s, box-shadow 0.3s;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.sudoku-cell:focus {
+    box-shadow: 0 0 10px rgba(255, 51, 204, 0.8); /* Hover effect */
+}
+
+input[type="text"]:disabled {
+    background-color: #eaeaea;
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+
+/* Default Button Style */
+button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Hover Effect for Default Button */
+button:hover {
+    background-color: #45a049;
+    border-radius: 20px;
+}
+
+/* Start Game Button */
+#user-info button {
+    border-radius: 10px 30px 10px 30px; /* Shape specific to Start Game button */
+    background-color: #2196F3; /* Default color */
+    color: white;
+}
+
+/* Hover Effect for Start Game Button */
+#user-info button:hover {
+    background-color: #1976D2;
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.6); /* RGB shadow effect */
+}
+
+/* Check Result Button */
+#check-button {
+    border-radius: 30px 10px 30px 10px; /* Shape specific to Check Result button */
+    background-color: #f44336; /* Default color */
+    color: white;
+    transition: border-radius 0.5s;
+}
+
+/* Hover Effect for Check Result Button */
+#check-button:hover {
+    background-color: #e53935;
+    box-shadow: 0 4px 8px rgba(244, 67, 54, 0.6); /* RGB shadow effect */
+}
+
+/* Get Hint Button */
+#hint-button {
+    border-radius: 30px 10px 30px 10px; /* Same shape as Check Result button */
+    background-color: #ff9800; /* Default color */
+    color: white;
+}
+
+/* Hover Effect for Get Hint Button */
+#hint-button:hover {
+    background-color: #f57c00;
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.6); /* RGB shadow effect */
+}
+
+/* Show Solution Button */
+#solution-button {
+    border-radius: 30px 10px 30px 10px; /* Same shape as Check Result button */
+    background-color: #9c27b0; /* Default color */
+    color: white;
+}
+
+/* Hover Effect for Show Solution Button */
+#solution-button:hover {
+    background-color: #7b1fa2;
+    box-shadow: 0 4px 8px rgba(156, 39, 176, 0.6); /* RGB shadow effect */
+}
+
+/* Sudoku Grid Colors */
+#sudoku-grid input:nth-child(odd) {
+    background-color: #f0f8ff;
+}
+
+#sudoku-grid input:nth-child(even) {
+    background-color: #fffacd;
+}
+
+/* Themes */
+#main-body.theme-default {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+#main-body.theme-dark {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+}
+
+#main-body.theme-sunset {
+    background-color: #ff7e5f;
+    color: #fff;
+}
+
+#main-body.theme-ocean {
+    background-color: #006994;
+    color: #fff;
+}
+
+#main-body.theme-forest {
+    background-color: #228b22;
+    color: #fff;
+}
+
+#main-body.theme-space {
+    background-color: #000;
+    background-image: url('space-background.jpg');
+    background-size: cover;
+    color: #fff;
+    font-family: 'Glowing Font', sans-serif; /* Glowing font for space theme */
+    text-shadow: 0 0 10px #ff33cc, 0 0 20px #ff33cc, 0 0 30px #ff33cc; /* Glowing text */
+}
+
+#main-body.theme-space #sudoku-grid input {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Space Theme Effects */
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 1.5s infinite;
+}
+
+#main-body.theme-romantic {
+    background-color: #ff69b4; /* Romantic pink background */
+    color: #fff;
+    font-family: 'Cursive', sans-serif; /* Romantic font */
+}
+
+#main-body.theme-romantic h1,
+#main-body.theme-romantic p {
+    text-shadow: 2px 2px 4px #ff1493;
+}
+
+/* Neon Theme */
+#main-body.theme-neon {
+    background-color: #0f0f0f; /* Dark background */
+    color: #39ff14; /* Neon green text */
+    font-family: 'Neon', sans-serif;
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+}
+
+#main-body.theme-neon #sudoku-grid input {
+    background-color: #282828;
+    border: 1px solid #39ff14;
+    color: #39ff14;
+}
+
+#main-body.theme-neon h1,
+#main-body.theme-neon p {
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+}
+
+/* Cyberpunk Theme */
+#main-body.theme-cyberpunk {
+    background-color: #1a1a1a; /* Dark background */
+    color: #ff00ff; /* Magenta text */
+    font-family: 'Cyberpunk', sans-serif;
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+}
+
+#main-body.theme-cyberpunk #sudoku-grid input {
+    background-color: #000;
+    border: 1px solid #ff00ff;
+    color: #ff00ff;
+}
+
+#main-body.theme-cyberpunk h1,
+#main-body.theme-cyberpunk p {
+    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+}

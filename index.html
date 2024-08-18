@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="main-body" class="theme-default">
+    <h1>Sudoku Game</h1>
+
+    <!-- User Input -->
+    <div id="user-info">
+        <label for="user-name">Enter your name:</label>
+        <input type="text" id="user-name" placeholder="Your Name">
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- User Display -->
+    <div id="user-display" style="display: none;">
+        <p id="user-name-display"></p>
+    </div>
+
+    <!-- Timer Display -->
+    <div id="timer-display" style="display: none;">
+        <p>Time: <span id="timer">00:00</span></p>
+    </div>
+
+    <!-- Theme Selection -->
+    <div id="theme-selector">
+        <label for="theme">Select Theme:</label>
+        <select id="theme" onchange="changeTheme(this.value)">
+            <option value="theme-default">Default</option>
+            <option value="theme-dark">Dark</option>
+            <option value="theme-sunset">Sunset</option>
+            <option value="theme-ocean">Ocean</option>
+            <option value="theme-forest">Forest</option>
+            <option value="theme-space">Space</option>
+            <option value="theme-romantic">Romantic</option>
+            <option value="theme-neon">Neon</option>
+            <option value="theme-cyberpunk">Cyberpunk</option>
+        </select>
+    </div>
+    
+    <!-- Sudoku Grid Container -->
+    <div id="sudoku-container" style="display: none;">
+        <div id="sudoku-grid"></div>
+        <button id="check-button" class="sudoku-button" onclick="checkSudoku()">Check Result</button>
+        <button id="hint-button" class="sudoku-button" onclick="giveHint()">Get Hint</button>
+        <button id="solution-button" class="sudoku-button" onclick="showSolution()">Show Solution</button>
+        <p id="status"></p>
+        <p id="level-display">Level: 1</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
