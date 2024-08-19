@@ -2,6 +2,9 @@ body {
     font-family: 'Cursive', sans-serif; /* Romantic font */
     text-align: center;
     transition: background-color 0.5s, color 0.5s;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 h1 {
@@ -19,22 +22,42 @@ h1:hover {
     transform: perspective(500px) rotateX(0deg); /* Hover effect for interaction */
 }
 
-#user-info {
-    margin-bottom: 20px;
+/* Target the input box specifically for entering the name */
+#user-info input[name="username"] {
+    background-color: #fffacd;
+    /* Light yellow background */ 
+    border: 2px solid #a0522d;
+    /* Sienna border */ 
+    color: #8b4513;
+    /* SaddleBrown text */ 
+    border-radius: 20px;
+    /* Rounded corners */ 
+    padding: 12px 24px;
+    /* Padding inside the input */ 
+    font-size: 16px;
+    /* Font size */ 
+    width: 80%;
+    /* Width of the input box */ 
+    max-width: 300px;
+    /* Maximum width */ 
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */ 
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Smooth transition for border and shadow */
 }
 
-#timer-display {
+#user-info input[name="username"]:focus {
+    border-color: #ff4500; /* Border color when focused */
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.5); /* Glow effect when focused */
+    outline: none; /* Remove default outline */
+}
+
+#timer-display, #user-display, #theme-selector {
     margin-bottom: 20px;
-    font-size: 18px;
 }
 
 #user-display {
-    margin-bottom: 10px;
     font-size: 20px;
-}
-
-#theme-selector {
-    margin-bottom: 20px;
 }
 
 #sudoku-container {
@@ -309,7 +332,7 @@ button:hover {
 /* Galaxy Theme */
 #main-body.theme-galaxy {
     background-color: #000; /* Black background */
-    background-image: url('galaxy-background.jpg');
+    background-image: url('https://images.alphacoders.com/135/thumb-1920-1354216.jpeg');
     background-size: cover;
     color: #fff; /* White text */
     font-family: 'Galactic', sans-serif;
@@ -318,7 +341,7 @@ button:hover {
 
 #main-body.theme-galaxy #sudoku-grid input {
     background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgb(226, 220, 220);
     color: #fff;
 }
 
