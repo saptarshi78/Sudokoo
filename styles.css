@@ -6,7 +6,17 @@ body {
 
 h1 {
     color: #333;
-    text-shadow: 2px 2px 4px #999; /* Shadow for h1 */
+    text-shadow: 2px 2px 4px #999, 4px 4px 8px #666, 6px 6px 12px #333; /* Multiple layers for 3D effect */
+    transform: perspective(500px) rotateX(10deg); /* 3D rotation */
+    font-size: 2.5em; /* Adjust font size */
+    letter-spacing: 2px; /* Space out letters slightly */
+    margin-bottom: 20px; /* Add space below the heading */
+    display: inline-block;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+h1:hover {
+    transform: perspective(500px) rotateX(0deg); /* Hover effect for interaction */
 }
 
 #user-info {
@@ -33,20 +43,26 @@ h1 {
 
 #sudoku-grid {
     display: grid;
-    grid-template-columns: repeat(9, 40px);
+    grid-template-columns: repeat(9, 1fr);
     grid-gap: 5px;
     justify-content: center;
     border: 2px solid #333; /* Border around Sudoku grid */
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
     background-color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 360px; /* Ensure the grid fits within the screen */
+    margin: 0 auto;
 }
 
 .sudoku-cell {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    padding: 0;
+    font-size: calc(12px + 1.5vw); /* Adjust font size based on screen size */
     text-align: center;
-    font-size: 18px;
+    box-sizing: border-box;
+    height: 40px;
+    line-height: 40px; /* Ensure vertical alignment of numbers */
     border: 1px solid #ccc;
     transition: background-color 0.5s, border 0.5s, box-shadow 0.3s;
     border-radius: 5px; /* Rounded corners */
@@ -245,4 +261,80 @@ button:hover {
 #main-body.theme-cyberpunk h1,
 #main-body.theme-cyberpunk p {
     text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+}
+
+/* Matrix Theme */
+#main-body.theme-matrix {
+    background-color: #000; /* Black background */
+    color: #00ff00; /* Matrix green text */
+    font-family: 'Matrix', sans-serif;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+#main-body.theme-matrix #sudoku-grid input {
+    background-color: #0f0f0f;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+}
+
+#main-body.theme-matrix h1,
+#main-body.theme-matrix p {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+/* Galaxy Theme */
+#main-body.theme-galaxy {
+    background-color: #00008b; /* Dark blue background */
+    color: #ffffff; /* White text */
+    font-family: 'Galaxy', sans-serif;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+#main-body.theme-galaxy #sudoku-grid input {
+    background-color: #1c1c1c;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+#main-body.theme-galaxy h1,
+#main-body.theme-galaxy p {
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+/* Retro Theme */
+#main-body.theme-retro {
+    background-color: #f5deb3; /* Wheat background */
+    color: #8b4513; /* Saddle brown text */
+    font-family: 'Retro', sans-serif;
+    text-shadow: 0 0 5px #8b4513, 0 0 10px #8b4513, 0 0 15px #8b4513;
+}
+
+#main-body.theme-retro #sudoku-grid input {
+    background-color: #ffdead;
+    border: 1px solid #8b4513;
+    color: #8b4513;
+}
+
+#main-body.theme-retro h1,
+#main-body.theme-retro p {
+    text-shadow: 0 0 5px #8b4513, 0 0 10px #8b4513, 0 0 15px #8b4513;
+}
+
+/* Abstract Theme */
+#main-body.theme-abstract {
+    background-color: #ff6347; /* Tomato background */
+    color: #2e8b57; /* Sea green text */
+    font-family: 'Abstract', sans-serif;
+    text-shadow: 0 0 5px #2e8b57, 0 0 10px #2e8b57, 0 0 15px #2e8b57;
+}
+
+#main-body.theme-abstract #sudoku-grid input {
+    background-color: #ffe4b5;
+    border: 1px solid #2e8b57;
+    color: #2e8b57;
+}
+
+#main-body.theme-abstract h1,
+#main-body.theme-abstract p {
+    text-shadow: 0 0 5px #2e8b57, 0 0 10px #2e8b57, 0 0 15px #2e8b57;
 }
