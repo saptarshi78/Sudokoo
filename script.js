@@ -220,4 +220,21 @@ function addCellEventListeners() {
     });
 }
 
+function createStars() {
+    const spaceBackground = document.getElementById('space-background');
+    const starSizes = ['small', 'medium', 'large'];
+    const numStars = 100; // Number of stars you want to create
 
+    for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star ' + starSizes[Math.floor(Math.random() * starSizes.length)];
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.opacity = Math.random(); // Random opacity for varying brightness
+        star.style.animationDelay = `${Math.random() * 5}s`; // Randomize animation start time
+        spaceBackground.appendChild(star);
+    }
+}
+
+// Call the function when the page loads
+window.onload = createStars;
