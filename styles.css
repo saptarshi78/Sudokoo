@@ -161,9 +161,9 @@ button:hover {
 }
 
 /* Themes */
-#main-body.theme-default {
-    background-color: #f7f7f7;
-    color: #333;
+#main-body.theme-ocean {
+    background-color: #006994;
+    color: #fff;
 }
 
 #main-body.theme-dark {
@@ -171,14 +171,16 @@ button:hover {
     color: #e0e0e0;
 }
 
+
 #main-body.theme-sunset {
     background-color: #ff7e5f;
     color: #fff;
 }
 
-#main-body.theme-ocean {
-    background-color: #006994;
-    color: #fff;
+/* Default Theme */
+#main-body.theme-default {
+    background: linear-gradient(135deg, #5f6aff, #fe7bf3); /* Gradient background from pink to orange */
+    color: #333;
 }
 
 #main-body.theme-forest {
@@ -202,16 +204,38 @@ button:hover {
 
 /* Space Theme Effects */
 @keyframes blink {
+    0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
 
 .star {
     position: absolute;
+    background: white;
+    clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
+        50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+    ); /* Star shape */
+    animation: blink 5s infinite ease-in-out; /* Slower blinking */
+}
+
+.star.small {
     width: 2px;
     height: 2px;
-    background: white;
-    border-radius: 50%;
-    animation: blink 1.5s infinite;
+}
+
+.star.medium {
+    width: 4px;
+    height: 4px;
+}
+
+.star.large {
+    width: 6px;
+    height: 6px;
+}
+
+/* Optional: Add some sparkle effect */
+.star.sparkle {
+    box-shadow: 0 0 3px white;
 }
 
 #main-body.theme-romantic {
@@ -266,75 +290,158 @@ button:hover {
 /* Matrix Theme */
 #main-body.theme-matrix {
     background-color: #000; /* Black background */
-    color: #00ff00; /* Matrix green text */
+    color: #0f0; /* Green text */
     font-family: 'Matrix', sans-serif;
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
 }
 
 #main-body.theme-matrix #sudoku-grid input {
-    background-color: #0f0f0f;
-    border: 1px solid #00ff00;
-    color: #00ff00;
+    background-color: #000;
+    border: 1px solid #0f0;
+    color: #0f0;
 }
 
 #main-body.theme-matrix h1,
 #main-body.theme-matrix p {
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+    text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 15px #0f0;
 }
 
 /* Galaxy Theme */
 #main-body.theme-galaxy {
-    background-color: #00008b; /* Dark blue background */
-    color: #ffffff; /* White text */
-    font-family: 'Galaxy', sans-serif;
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    background-color: #000; /* Black background */
+    background-image: url('galaxy-background.jpg');
+    background-size: cover;
+    color: #fff; /* White text */
+    font-family: 'Galactic', sans-serif;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
 }
 
 #main-body.theme-galaxy #sudoku-grid input {
-    background-color: #1c1c1c;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-}
-
-#main-body.theme-galaxy h1,
-#main-body.theme-galaxy p {
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
 }
 
 /* Retro Theme */
 #main-body.theme-retro {
-    background-color: #f5deb3; /* Wheat background */
-    color: #8b4513; /* Saddle brown text */
+    background-color: #f0e6f6; /* Light retro background */
+    color: #333; /* Dark retro text */
     font-family: 'Retro', sans-serif;
-    text-shadow: 0 0 5px #8b4513, 0 0 10px #8b4513, 0 0 15px #8b4513;
+    text-shadow: 1px 1px 2px #333;
 }
 
 #main-body.theme-retro #sudoku-grid input {
-    background-color: #ffdead;
-    border: 1px solid #8b4513;
-    color: #8b4513;
+    background-color: #fff;
+    border: 1px solid #333;
+    color: #333;
 }
 
 #main-body.theme-retro h1,
 #main-body.theme-retro p {
-    text-shadow: 0 0 5px #8b4513, 0 0 10px #8b4513, 0 0 15px #8b4513;
+    text-shadow: 1px 1px 2px #333;
 }
 
-/* Abstract Theme */
+/* Enhanced Abstract Theme */
 #main-body.theme-abstract {
-    background-color: #ff6347; /* Tomato background */
-    color: #2e8b57; /* Sea green text */
+    background-color: #ffefd5; /* Lighter and warmer background */
+    color: #2f4f4f; /* Dark Slate Grey text for better contrast */
     font-family: 'Abstract', sans-serif;
-    text-shadow: 0 0 5px #2e8b57, 0 0 10px #2e8b57, 0 0 15px #2e8b57;
+    text-shadow: 2px 2px 4px #2f4f4f; /* More pronounced shadow for depth */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
+
+#main-body.theme-abstract h1 {
+    color: #8b0000; /* Dark Red for a bold heading */
+    text-shadow: 3px 3px 6px #a52a2a; /* Deep Brown shadow */
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+#main-body.theme-abstract p {
+    color: #483d8b; /* Dark Slate Blue for text */
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-shadow: 2px 2px 4px #483d8b;
+}
+
+#main-body.theme-abstract a {
+    color: #2e8b57; /* Sea Green for links */
+    text-decoration: none;
+    border-bottom: 2px solid #2e8b57;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+#main-body.theme-abstract a:hover {
+    color: #ff4500; /* Orange Red on hover */
+    border-bottom: 2px solid #ff4500;
+}
+
+#sudoku-grid.theme-abstract input {
+    background-color: #faf0e6;
+    /*Linenbackgroundforinputfields*/border: 2px solid #a0522d;
+    /*Siennaborder*/color: #8b4513;
+    /*SaddleBrowntext*/border-radius: 8px;
+    /*Slightlymoreroundedcorners*/transition: background-color 0.5s ease, border 0.5s ease;
+    -webkit-transition: background-color 0.5s ease, border 0.5s ease;
+    -moz-transition: background-color 0.5s ease, border 0.5s ease;
+    -ms-transition: background-color 0.5s ease, border 0.5s ease;
+    -o-transition: background-color 0.5s ease, border 0.5s ease;
+}
+
+#sudoku-grid.theme-abstract input:focus {
+    background-color: #fffacd; /* Light yellow on focus */
+    border: 2px solid #ff4500; /* Bright orange-red border on focus */
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.5); /* Orange glow */
+}
+
+button.theme-abstract {
+    background-color: #20b2aa; /* Light Sea Green for buttons */
+    color: white;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.theme-abstract:hover {
+    background-color: #3cb371; /* Medium Sea Green on hover */
+    transform: scale(1.05); /* Slight scaling for interaction */
+    box-shadow: 0 4px 12px rgba(60, 179, 113, 0.5); /* Green shadow */
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    #main-body.theme-abstract h1 {
+        font-size: 2.2em; /* Slightly smaller heading on smaller screens */
+    }
+
+    button.theme-abstract {
+        font-size: 1em; /* Adjust button font size for smaller screens */
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #main-body.theme-abstract h1 {
+        font-size: 1.8em; /* Even smaller heading for mobile */
+        letter-spacing: 2px;
+    }
+
+    #main-body.theme-abstract p {
+        font-size: 1em; /* Adjust paragraph font size for mobile */
+    }
+}
+
 
 #main-body.theme-abstract #sudoku-grid input {
-    background-color: #ffe4b5;
-    border: 1px solid #2e8b57;
-    color: #2e8b57;
+    background-color: #fff;
+    border: 1px solid #666;
+    color: #666;
 }
 
 #main-body.theme-abstract h1,
 #main-body.theme-abstract p {
-    text-shadow: 0 0 5px #2e8b57, 0 0 10px #2e8b57, 0 0 15px #2e8b57;
+    text-shadow: 1px 1px 2px #666;
 }
