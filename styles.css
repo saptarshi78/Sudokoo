@@ -24,26 +24,21 @@ h1:hover {
 
 /* Target the input box specifically for entering the name */
 #user-info input[name="username"] {
-    background-color: #fffacd;
-    /* Light yellow background */ 
-    border: 2px solid #a0522d;
-    /* Sienna border */ 
-    color: #8b4513;
-    /* SaddleBrown text */ 
-    border-radius: 20px;
-    /* Rounded corners */ 
-    padding: 12px 24px;
-    /* Padding inside the input */ 
-    font-size: 16px;
-    /* Font size */ 
-    width: 80%;
-    /* Width of the input box */ 
-    max-width: 300px;
-    /* Maximum width */ 
-    box-sizing: border-box;
-    /* Include padding and border in element's total width and height */ 
-    transition: border-color 0.3s, box-shadow 0.3s;
-    /* Smooth transition for border and shadow */
+    background-color: #edd70a;
+    /*Lightyellowbackground*/border: 6px solid #f55106;
+    /*Siennaborder*/color: #8b4513;
+    /*SaddleBrowntext*/border-radius: 20px;
+    /*Roundedcorners*/padding: 12px 24px;
+    /*Paddinginsidetheinput*/font-size: 16px;
+    /*Fontsize*/width: 60%;
+    /*Widthoftheinputbox*/max-width: 300px;
+    /*Maximumwidth*/box-sizing: border-box;
+    /*Includepaddingandborderinelement'stotalwidthandheight*/transition: border-color 0.3s, box-shadow 0.3s;
+        /* Smooth transition for border and shadow */
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
 }
 
 #user-info input[name="username"]:focus {
@@ -69,14 +64,24 @@ h1:hover {
     grid-template-columns: repeat(9, 1fr);
     grid-gap: 5px;
     justify-content: center;
-    border: 2px solid #333; /* Border around Sudoku grid */
+    border: 2px solid #333;
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     background-color: rgba(255, 255, 255, 0.2);
     width: 100%;
     max-width: 360px; /* Ensure the grid fits within the screen */
     margin: 0 auto;
+    box-sizing: border-box; /* Include padding in the width */
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 480px) {
+    #sudoku-grid {
+        grid-gap: 3px; /* Reduce gap for smaller screens */
+        max-width: 300px; /* Adjust max-width for smaller screens */
+    }
+}
+
 
 .sudoku-cell {
     width: 100%;
